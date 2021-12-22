@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: ravivm
+pool: aksagentpool
   #vmImage: ubuntu-latest
 
 steps:
