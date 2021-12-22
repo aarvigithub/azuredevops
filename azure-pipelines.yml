@@ -3,7 +3,9 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- main
+- master
+
+pool: ravivm
 
 resources:
 - repo: self
@@ -18,7 +20,7 @@ variables:
 
   # Agent VM image name
   #vmImageName: 'ubuntu-latest'
-  pool: ravivm
+  #pool: ravivm
 
 stages:
 - stage: Build
