@@ -8,14 +8,6 @@ trigger:
 
 pool: aksagentpool
   #vmImage: ubuntu-latest
-variables:
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '6a8843fd-7313-48e2-9381-3f9ef59ce82d'
-  imageRepository: 'app1/app1nginx'
-  containerRegistry: 'aksdevopsacr.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
-
 stages:
 - stage: Build
   displayName: Build the Image
@@ -24,14 +16,13 @@ stages:
     displayName: Build the image
     steps:
     - task: Docker@2
-      displayName: Build and push an image to container registry
       inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: 'raviacrasha'
+        repository: 'app1/app1nginx'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
         tags: |
-          $(tag)
+         $(Build.BuildId)
     
 
     
