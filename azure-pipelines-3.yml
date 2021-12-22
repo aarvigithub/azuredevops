@@ -24,6 +24,8 @@ stages:
         repository: 'raviacrashs'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+        tags: 
+          $(Build.SourceVersion)
   
      
      
