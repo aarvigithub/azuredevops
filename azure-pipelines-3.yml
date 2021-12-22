@@ -17,14 +17,17 @@ stages:
     displayName: Build the image
     steps:
      # Build the docker image and push to ACR
+    tasks: 
     - task: Docker@2
       inputs:
-         containerRegistry: 'ravisc'
-         repository: 'dockerimage'
-         command: 'buildAndPush'
-         Dockerfile: '**/Dockerfile'
-         tags: 
-           (Build.SourceVersion)
+        containerRegistry: 'raviacrasha'
+        repository: 'raviacrashs'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+  
+     
+     
+     
      
 
 
