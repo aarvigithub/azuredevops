@@ -5,7 +5,7 @@
 trigger:
 - master
 
-pool: aksagentpool
+#pool: aksagentpool
 
 resources:
 - repo: self
@@ -28,8 +28,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(vmImageName)
+    pool: aksagentpool
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
